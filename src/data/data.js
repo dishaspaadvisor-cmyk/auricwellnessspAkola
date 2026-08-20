@@ -26,10 +26,10 @@ export const siteData = {
       name: "About",
       path: "/about",
     },
-    // {
-    //   name: "Offers",
-    //   path: "/offers",
-    // },
+    {
+      name: "Offers",
+      path: "/offers",
+    },
     {
       name: "Gallery",
       path: "/gallery",

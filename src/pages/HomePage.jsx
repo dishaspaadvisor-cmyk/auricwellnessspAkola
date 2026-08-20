@@ -113,7 +113,7 @@ export default function HomePage() {
           OFFERS
       ====================================== */}
 
-            {/* <section className="home-offers-section">
+             <section className="home-offers-section">
                 <div className="home-container">
                     <div className="home-section-heading text-white">
                         <span className="home-section-eyebrow text">
@@ -141,7 +141,7 @@ export default function HomePage() {
                     </div>
 
                 </div>
-            </section> */}
+            </section> 
 
             {/* =====================================
           GALLERY

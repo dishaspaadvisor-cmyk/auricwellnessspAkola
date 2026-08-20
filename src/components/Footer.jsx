@@ -49,45 +49,10 @@ export default function Footer() {
           {/* BRAND */}
 
           <div className="footer-brand-column">
-            <Link
-              to="/"
-              className="main-logo"
-              aria-label="Aris Wellness Spa - Spa in Akola"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "12px",
-                textDecoration: "none",
-              }}
-            >
-
-              <span
-                style={{
-                  fontFamily: 'Georgia, "Times New Roman", serif',
-                  fontSize: "clamp(18px, 2vw, 25px)",
-                  fontWeight: "600",
-                  lineHeight: "1.1",
-                  letterSpacing: "0.4px",
-                  color: "#df8d22",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Aris Wellness
-                <span
-                  style={{
-                    marginLeft: "6px",
-                    color: "#c5965b",
-                    fontStyle: "italic",
-                    fontWeight: "500",
-                  }}
-                >
-                  Spa
-                </span>
-              </span>
-            </Link>
+         
 
 
-            {/* <Link
+             <Link
               to="/"
               className="main-logo"
               aria-label={`${siteData.name} - Spa in Akola`}
@@ -97,7 +62,7 @@ export default function Footer() {
                 alt={`${siteData.name} Spa in Akola`}
                 className="main-logo-image"
               />
-            </Link> */}
+            </Link> 
 
             <p className="footer-description">
               {footerData.description}
