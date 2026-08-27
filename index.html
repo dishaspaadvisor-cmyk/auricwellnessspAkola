@@ -1,17 +1,30 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+    <!-- =====================================================
+         VITE DEVELOPMENT REFRESH
+         Keep these for Vite development.
+         They are ignored/handled by Vite during development.
+    ====================================================== -->
+
     <script type="module">
       import { injectIntoGlobalHook } from "/@react-refresh";
 
       injectIntoGlobalHook(window);
+
       window.$RefreshReg$ = () => {};
       window.$RefreshSig$ = () => (type) => type;
     </script>
 
     <script type="module" src="/@vite/client"></script>
 
-    <!-- Google tag (gtag.js) -->
+
+    <!-- =====================================================
+         GOOGLE ADS - GLOBAL TAG
+         Google Ads ID: AW-18407321841
+    ====================================================== -->
+
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-18407321841"
@@ -21,7 +34,7 @@
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {
-        dataLayer.push(arguments);
+        window.dataLayer.push(arguments);
       }
 
       gtag("js", new Date());
@@ -29,25 +42,56 @@
       gtag("config", "AW-18407321841");
     </script>
 
-    <!-- Event snippet for Purchase conversion page -->
+
+    <!-- =====================================================
+         GOOGLE ADS - PURCHASE CONVERSION
+         
+         IMPORTANT:
+         DO NOT call this automatically on page load.
+         
+         This function can be called after a successful
+         purchase/booking/payment.
+    ====================================================== -->
+
     <script>
-      gtag("event", "conversion", {
-        send_to: "AW-18407321841/eiHRCNOZ-uYcEPHhpclE",
-        value: 1.0,
-        currency: "INR",
-        transaction_id: ""
-        // new_customer: true /* calculate dynamically, populate with true/false */,
-      });
+      function gtag_report_purchase_conversion(
+        url,
+        value = 1.0,
+        transaction_id = ""
+      ) {
+        var callback = function () {
+          if (typeof url !== "undefined" && url !== "") {
+            window.location = url;
+          }
+        };
+
+        gtag("event", "conversion", {
+          send_to: "AW-18407321841/eiHRCNOZ-uYcEPHhpclE",
+          value: value,
+          currency: "INR",
+          transaction_id: transaction_id,
+          event_callback: callback
+        });
+
+        return false;
+      }
     </script>
 
-    <!-- Event snippet for Purchase conversion page
-         In your html page, add the snippet and call
-         gtag_report_conversion when someone clicks on the chosen link or button. -->
+
+    <!-- =====================================================
+         GOOGLE ADS - STANDARD CLICK CONVERSION FUNCTION
+         
+         Use this when the Purchase conversion is intentionally
+         attached to a specific button/link.
+         
+         Example:
+         onclick="return gtag_report_conversion('/thank-you')"
+    ====================================================== -->
 
     <script>
       function gtag_report_conversion(url) {
         var callback = function () {
-          if (typeof url != "undefined") {
+          if (typeof url !== "undefined" && url !== "") {
             window.location = url;
           }
         };
@@ -58,14 +102,38 @@
           currency: "INR",
           transaction_id: "",
           event_callback: callback
-          // new_customer: true /* calculate dynamically, populate with true/false */,
         });
 
         return false;
       }
     </script>
 
+
+    <!-- =====================================================
+         BASIC META
+    ====================================================== -->
+
     <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="theme-color"
+      content="#ffffff"
+    />
+
+    <meta
+      name="format-detection"
+      content="telephone=yes"
+    />
+
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
 
     <link
       rel="icon"
@@ -73,19 +141,34 @@
       href="/logo/logo.png"
     />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
+    <link
+      rel="apple-touch-icon"
+      href="/logo/logo.png"
     />
+
+
+    <!-- =====================================================
+         SEO TITLE
+    ====================================================== -->
 
     <title>
       Aris Wellness Spa Akola | Full Body Massage & Luxury Spa
     </title>
 
+
+    <!-- =====================================================
+         SEO DESCRIPTION
+    ====================================================== -->
+
     <meta
       name="description"
       content="Visit Aris Wellness Spa at Bill Mart Commercial Complex, Balapur Road, Akola for full body massage, Thai massage, deep tissue massage, Swedish massage, hot oil massage, couple spa and premium wellness therapies."
     />
+
+
+    <!-- =====================================================
+         SEO KEYWORDS
+    ====================================================== -->
 
     <meta
       name="keywords"
@@ -125,7 +208,6 @@
         spa therapy in Akola,
         neck and shoulder massage in Akola,
         Balinese massage in Akola,
-        Hot oil Massage in Akola,
         professional massage therapist in Akola,
         spa packages in Akola,
         massage center in Akola,
@@ -137,6 +219,11 @@
       "
     />
 
+
+    <!-- =====================================================
+         ROBOTS
+    ====================================================== -->
+
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -147,10 +234,20 @@
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
 
+
+    <!-- =====================================================
+         AUTHOR
+    ====================================================== -->
+
     <meta
       name="author"
       content="Aris Wellness Spa"
     />
+
+
+    <!-- =====================================================
+         LOCAL SEO
+    ====================================================== -->
 
     <meta
       name="geo.region"
@@ -171,6 +268,11 @@
       name="ICBM"
       content="20.7002, 77.0082"
     />
+
+
+    <!-- =====================================================
+         OPEN GRAPH
+    ====================================================== -->
 
     <meta
       property="og:title"
@@ -197,6 +299,11 @@
       content="en_IN"
     />
 
+
+    <!-- =====================================================
+         TWITTER / X
+    ====================================================== -->
+
     <meta
       name="twitter:card"
       content="summary_large_image"
@@ -211,14 +318,27 @@
       name="twitter:description"
       content="Full body massage, Thai massage, deep tissue massage, Swedish massage, hot oil massage and premium wellness services in Akola, Maharashtra."
     />
+
   </head>
 
+
   <body>
+
+    <!-- =====================================================
+         REACT APPLICATION
+    ====================================================== -->
+
     <div id="root"></div>
+
+
+    <!-- =====================================================
+         VITE REACT ENTRY
+    ====================================================== -->
 
     <script
       type="module"
       src="/src/main.jsx"
     ></script>
+
   </body>
 </html>
