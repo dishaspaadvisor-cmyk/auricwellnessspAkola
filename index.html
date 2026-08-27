@@ -1,6 +1,70 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="module">
+      import { injectIntoGlobalHook } from "/@react-refresh";
+
+      injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+    </script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-18407321841"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "AW-18407321841");
+    </script>
+
+    <!-- Event snippet for Purchase conversion page -->
+    <script>
+      gtag("event", "conversion", {
+        send_to: "AW-18407321841/eiHRCNOZ-uYcEPHhpclE",
+        value: 1.0,
+        currency: "INR",
+        transaction_id: ""
+        // new_customer: true /* calculate dynamically, populate with true/false */,
+      });
+    </script>
+
+    <!-- Event snippet for Purchase conversion page
+         In your html page, add the snippet and call
+         gtag_report_conversion when someone clicks on the chosen link or button. -->
+
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url != "undefined") {
+            window.location = url;
+          }
+        };
+
+        gtag("event", "conversion", {
+          send_to: "AW-18407321841/eiHRCNOZ-uYcEPHhpclE",
+          value: 1.0,
+          currency: "INR",
+          transaction_id: "",
+          event_callback: callback
+          // new_customer: true /* calculate dynamically, populate with true/false */,
+        });
+
+        return false;
+      }
+    </script>
+
     <meta charset="UTF-8" />
 
     <link
